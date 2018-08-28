@@ -31,6 +31,25 @@ The complete docs are hosted here: [bitcore documentation](http://bitcore.io/gui
 To get community assistance and ask for help with implementation questions, please use our [community forums](https://forum.bitcore.io/).
 
 ## Examples
+```javascript
+const zec = require('bitcore-lib-zcash')
+let transaction = new zec.Transaction()
+transaction.version = 3
+transaction.fOverwintered = true
+transaction.nVersionGroupId = 0x03C48270
+transaction.nExpiryHeight = 384561
+let utxo = {
+  txId: "654e4c946205a1a685e1ccf6b7f985b2da9f7112a60e4cab9f5e5c09d6c1c0ab",
+  outputIndex: 1,
+  script: "76a914149905316a9cccde5e5db3a97c156f66198e6a0a88ac",
+  satoshis: 234230
+}
+transaction.from(utxo).to(recipientAddr, amt)
+  .to(privateKey.toAddress(), balance-amt-fee)
+  .sign(privateKey)
+  .toString()
+```
+
 
 * [Generate a random address](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#generate-a-random-address)
 * [Generate a address from a SHA256 hash](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)
