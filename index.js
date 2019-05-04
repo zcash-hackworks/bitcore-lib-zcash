@@ -13,8 +13,8 @@ bitcore.versionGuard = function(version) {
     //throw new Error(message);
   }
 };
-bitcore.versionGuard(global._bitcore);
-global._bitcore = bitcore.version;
+bitcore.versionGuard(global._bitcoreZec);
+global._bitcoreZec = bitcore.version;
 
 // crypto
 bitcore.crypto = {};
@@ -67,5 +67,4 @@ bitcore.deps.elliptic = require('elliptic');
 bitcore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
-bitcore._HDKeyCache = require('./lib/hdkeycache');
 bitcore.Transaction.sighash = require('./lib/transaction/sighash');
